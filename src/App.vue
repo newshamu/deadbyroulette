@@ -38,19 +38,19 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <PerkList/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import PerkList from './components/PerkList';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    PerkList,
   },
 
   data: () => ({
