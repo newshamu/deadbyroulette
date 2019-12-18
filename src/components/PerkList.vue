@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-container>
     <v-layout
       text-center
@@ -8,17 +9,24 @@
         <v-btn v-on:click="getPerks()">Perk</v-btn>
       </v-flex>
     </v-layout>
+  </v-container>
     
-    <v-layout v-on:change="randPerks">
-      <v-flex xs4 v-for="perk in randPerks" :key="perk.name">
+  <v-container fluid v-on:change="randPerks">
+    <v-row class="d-flex justify-space-around">
+    <v-flex xs2 v-for="perk in randPerks" :key="perk.name">
+      <v-card>
         <v-img
           :src="perk.link"
-          max-width="128"
-          max-height="128"
+          max-width="196"
+          max-height="196"
+          class="ma-3"
         />
-      </v-flex>
-    </v-layout>
+        <v-card-title>{{ perk.name }}</v-card-title>
+      </v-card>
+    </v-flex>
+  </v-row>
   </v-container>
+  </div>
 </template>
 
 <script>
@@ -30,7 +38,7 @@ export default {
       this.randPerks = [];
       const keys = Object.keys(this.sPerks);
 
-      // Create random index list
+      // Create random perk list
       while (this.randPerks.length < 4) {
         let key = keys[Math.floor(Math.random() * keys.length)];
         let perk = {
@@ -41,8 +49,6 @@ export default {
           this.randPerks.push(perk);
         }
       }
-      // eslint-disable-next-line no-console
-      this.randPerks;
       this.showPerks = true;
     }
   },
