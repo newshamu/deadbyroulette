@@ -9,19 +9,19 @@
     </v-app-bar>
     
     <v-content>
-      <PerkList/>
+      <PerkDisplay />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import PerkList from './components/PerkList';
+import PerkDisplay from './components/PerkDisplay';
 
 export default {
   name: 'App',
 
   components: {
-    PerkList,
+    PerkDisplay,
   },
 
   data: () => ({

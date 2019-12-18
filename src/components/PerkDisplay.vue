@@ -13,25 +13,23 @@
     
   <v-container fluid v-on:change="randPerks">
     <v-row class="d-flex justify-space-around">
-    <v-flex xs2 v-for="perk in randPerks" :key="perk.name">
-      <v-card>
-        <v-img
-          :src="perk.link"
-          max-width="196"
-          max-height="196"
-          class="ma-3"
-        />
-        <v-card-title>{{ perk.name }}</v-card-title>
-      </v-card>
-    </v-flex>
-  </v-row>
+      <perk-card
+        v-for="perk in randPerks" :key="perk.name"
+        :perk="perk"
+      />
+    </v-row>
   </v-container>
   </div>
 </template>
 
 <script>
+import PerkCard from './PerkCard'
+
 export default {
-  name: 'PerkList',
+  name: 'PerkDisplay',
+  components: {
+    PerkCard,
+  },
   methods: {
     getPerks: function () {
       // Set up vars
