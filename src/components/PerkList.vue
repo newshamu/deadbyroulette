@@ -5,12 +5,14 @@
       wrap
     >
       <v-flex xs12>
-        <v-btn @click="getPerks()">Perk</v-btn>
+        <v-btn v-on:click="getPerks()">Perk</v-btn>
       </v-flex>
-
-      <v-flex xs12 v-if="perk1 != null">
+    </v-layout>
+    
+    <v-layout v-on:change="randPerks">
+      <v-flex xs4 v-for="perk in randPerks" :key="perk.name">
         <v-img
-          :src="this.perk1"
+          :src="perk.link"
           max-width="128"
           max-height="128"
         />
@@ -22,21 +24,32 @@
 <script>
 export default {
   name: 'PerkList',
-
   methods: {
-    getPerks: function() {
-      this.perk1 = this.randomPerk();
-    },
+    getPerks: function () {
+      // Set up vars
+      this.randPerks = [];
+      const keys = Object.keys(this.sPerks);
 
-    randomPerk: function () {
-      var keys = Object.keys(this.sPerks)
-      return this.sPerks[keys[ keys.length * Math.random() << 0]];
+      // Create random index list
+      while (this.randPerks.length < 4) {
+        let key = keys[Math.floor(Math.random() * keys.length)];
+        let perk = {
+          'name': key,
+          'link': this.sPerks[key]
+        }
+        if (!this.randPerks.includes(perk)) {
+          this.randPerks.push(perk);
+        }
+      }
+      // eslint-disable-next-line no-console
+      this.randPerks;
+      this.showPerks = true;
     }
   },
-
   data: () => {
-    return {    
-      perk1: null,
+    return {   
+      showPerks: false, 
+      randPerks: [],
       sPerks: {
         'Dark Sense': 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/9/92/IconPerks_darkSense.png?version=ac39109c8d521c2b62c901eb7683924f',
         'Deja Vu': 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/2/2a/DejaVu.gif?version=9de0a5e9a2e2c8bd1b213a3985582691',
@@ -112,58 +125,7 @@ export default {
         'Lucky Break': 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/f/f7/LuckyBreak.gif?version=feb6c5f0ef69e0201223ddb48f2619d1',
         'Any Means Necessary': 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/2/25/AnyMeansNecessary.gif?version=62a6443d5dda1c1e69ec46b99651c000',
         'Breakout': 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/5/50/Breakout.gif?version=40e5cb02455d4cd3ea5b6dcca43cdcaf',
-      },
-
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/layout/pre-defined',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
+      }
     }
   }
 };
