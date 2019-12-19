@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="main" :style="{background: $vuetify.theme.themes[theme].background}">
     <v-app-bar
       app
       color="primary"
@@ -22,6 +22,12 @@ export default {
 
   components: {
     PerkDisplay,
+  },
+
+  computed:{
+    theme(){
+      return (this.$vuetify.theme.dark) ? 'dark' : 'light'
+    }
   },
 
   data: () => ({

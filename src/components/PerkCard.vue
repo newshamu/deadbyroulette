@@ -1,13 +1,13 @@
 <template>
     <v-flex xs2>
-      <v-card>
+      <v-card dark color="primary">
         <v-img
           :src="perk.link"
-          max-width="196"
-          max-height="196"
+          max-width="256"
+          max-height="256"
           class="ma-3"
         />
-        <v-card-title>{{ perk.name }}</v-card-title>
+        <v-card-title class="justify-center">{{ perk.name }}</v-card-title>
       </v-card>
     </v-flex>
 </template>
