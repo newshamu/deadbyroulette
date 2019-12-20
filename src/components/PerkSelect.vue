@@ -1,39 +1,27 @@
 <template>
-  <v-flex>
-    <v-select
-      v-model="selectedPerks"
-      :items="availablePerks"
-      label="Available Perks"
-      dense
-      item-text="name"
-      item-value="link"
-      return-object
-      v-on:input="emitChange"
-    >
-
-    </v-select>
-  </v-flex>
+  <v-container fluid>
+    <v-row class="d-flex justify-space-around" v-for="perk in perks" :key="perk.name">
+      <v-flex>
+        <v-checkbox
+          v-model="perk.active"
+          :label="perk.name"
+        />
+      </v-flex>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 export default {
   name: 'PerkSelect',
-  props: ['availablePerks'],
+  props: ['perks'],
 
   data() {
     return {
-      selectedPerks: []
+      sPerks: this.perks
     }
-  },
-
-  mounted() {
-    this.selectedPerks = this.availablePerks
-  },
-
-  methods: {
-    emitChange() {
-      this.$emit('perk-list-change', this.selectedPerks)
-    },
   }
+
+    
 }
 </script>

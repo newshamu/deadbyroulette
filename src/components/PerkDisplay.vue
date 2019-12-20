@@ -11,12 +11,11 @@
     </v-layout>
   </v-container>
     
-  <v-container fluid v-if="showPerks">
+  <v-container fluid>
     <v-row class="d-flex justify-space-around" v-on:change="randPerks">
       <perk-card
         v-for="perk in randPerks" :key="perk.name"
         :perk="perk"
-        v-on:perk-list-change="updateAvailablePerks"
       />
     </v-row>
   </v-container>
@@ -28,7 +27,7 @@ import PerkCard from './PerkCard'
 
 export default {
   name: 'PerkDisplay',
-  props: ['availablePerks'],
+  props: ['perks'],
   components: {
     PerkCard,
   },
@@ -36,31 +35,26 @@ export default {
     getPerks() {
       // Set up vars
       this.randPerks = [];
-      console.log(this.availablePerks)
-      const keys = Object.keys(this.availablePerks);
+      let available = [];
+
+      for (let i in this.perks) {
+        let perk = this.perks[i]
+        if (perk.active === true) {
+          available.push(perk);
+        }
+      }
 
       // Create random perk list
       while (this.randPerks.length < 4) {
-        let key = keys[Math.floor(Math.random() * keys.length)];
-        console.log(key)
-        let perk = {
-          'name': key,
-          'link': this.availablePerks[key]
-        }
+        let perk = available[Math.floor(Math.random() * available.length)];
         if (!this.randPerks.includes(perk)) {
           this.randPerks.push(perk);
         }
       }
-      this.showPerks = true;
-    },
-
-    updateAvailablePerks(availablePerks) {
-      this.availablePerks = availablePerks
     }
   },
   data() {
     return {   
-      showPerks: false, 
       randPerks: []
     }
   }
