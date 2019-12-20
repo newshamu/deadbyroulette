@@ -5,8 +5,8 @@
       text-center
       wrap
     >
-      <v-flex xs12>
-        <v-btn v-on:click="getPerks">Perk</v-btn>
+      <v-flex xs12 class="mt-5">
+        <v-btn color="secondary" v-on:click="getPerks">Play the Roulette</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
@@ -16,6 +16,7 @@
       <perk-card
         v-for="perk in randPerks" :key="perk.name"
         :perk="perk"
+        v-on:perk-list-change="updateAvailablePerks"
       />
     </v-row>
   </v-container>
@@ -51,6 +52,10 @@ export default {
         }
       }
       this.showPerks = true;
+    },
+
+    updateAvailablePerks(availablePerks) {
+      this.availablePerks = availablePerks
     }
   },
   data() {
