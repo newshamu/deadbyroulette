@@ -15,11 +15,11 @@ export default new Vuetify({
         error: colors.red.accent3
       },
       dark: {
-        primary: '#170626',
-        secondary: '#260615',
-        accent: '#274343',
+        background: '#70481a',
+        secondary: '#1a6d70',
+        accent: '#1a701d',
         error: colors.red.accent3,
-        background: '#261706'
+        primary: '#701d1a',
       }
     }
   }
