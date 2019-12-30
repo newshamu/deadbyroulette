@@ -6,7 +6,7 @@
       wrap
     >
       <v-flex xs12 class="mt-5">
-        <v-btn color="secondary" v-on:click="getPerks">Play the Roulette</v-btn>
+        <v-btn color="accent" v-on:click="getPerks">Play the Roulette</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
@@ -38,7 +38,7 @@ export default {
       let available = [];
 
       for (let i in this.perks) {
-        let perk = this.perks[i]
+        let perk = this.perks[i];
         if (perk.active === true) {
           available.push(perk);
         }

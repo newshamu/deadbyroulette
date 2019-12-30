@@ -9,11 +9,11 @@
     </v-app-bar>
     
     <v-content>
-      <Perk-display :perks="perks" />
+      <perk-display :perks="perks" />
+      <select-all v-on:select-all-perks="selectAllPerks" />
       <perk-select
         class="ma-5"
         :perks="perks"
-        v-on:update-perks="updatePerks"
       />
     </v-content>
   </v-app>
@@ -21,6 +21,7 @@
 
 <script>
 import PerkSelect from './components/PerkSelect'
+import SelectAll from './components/SelectAll'
 import PerkDisplay from './components/PerkDisplay'
 import survivorPerks from '../static/SurvivorPerks'
 
@@ -28,6 +29,7 @@ export default {
   name: 'App',
 
   components: {
+    SelectAll,
     PerkSelect,
     PerkDisplay
   },
@@ -43,8 +45,27 @@ export default {
   },
 
   methods: {
-    updatePerks(perks) {
-      this.perks = perks
+    selectAllPerks() {
+      let allSelected = true;
+      this.perks.forEach( function (perk) {
+        if (!perk.active) {
+          allSelected = false;
+        }
+      })
+
+      // Set all to true
+      if (!allSelected) {
+        console.log('set to true')
+        this.perks.forEach( function (perk) {
+          perk.active = true;
+        })
+      // Set all to false
+      } else {
+        console.log('set to false')
+        this.perks.forEach( function (perk) {
+          perk.active = false;
+        })
+      }
     }
   },
 

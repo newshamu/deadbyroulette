@@ -5,7 +5,7 @@
         <v-card tile hover>
           <v-btn
             v-model="perk.active"
-            :color="perk.active ? 'primary' : accent"
+            :color="perk.active ? 'primary' : 'accent'"
             block
             v-on:click="toggle(perk)"
           >

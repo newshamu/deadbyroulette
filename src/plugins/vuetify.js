@@ -16,10 +16,10 @@ export default new Vuetify({
       },
       dark: {
         background: '#70481a',
-        secondary: '#1a6d70',
-        accent: '#1a701d',
-        error: colors.red.accent3,
         primary: '#701d1a',
+        secondary: '#8d3228',
+        accent: '#4f000a',
+        error: colors.red.accent3
       }
     }
   }
