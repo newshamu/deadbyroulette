@@ -33,23 +33,28 @@ export default {
   },
   methods: {
     getPerks() {
-      // Set up vars
-      this.randPerks = [];
       let available = [];
 
-      for (let i in this.perks) {
-        let perk = this.perks[i];
+      this.perks.forEach( function(perk) {
         if (perk.active === true) {
           available.push(perk);
         }
-      }
+      })
+
+      console.log(available.length)
 
       // Create random perk list
-      while (this.randPerks.length < 4) {
-        let perk = available[Math.floor(Math.random() * available.length)];
-        if (!this.randPerks.includes(perk)) {
-          this.randPerks.push(perk);
+      if (available.length >= 4) {
+        this.randPerks = [];
+        while (this.randPerks.length < 4) {
+          let perk = available[Math.floor(Math.random() * available.length)];
+          if (!this.randPerks.includes(perk)) {
+            this.randPerks.push(perk);
+          }
         }
+      } else {
+        console.log('Not enough perks are active')
+        /* TODO: Implement lack of perks alert */
       }
     }
   },
