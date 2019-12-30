@@ -257,7 +257,7 @@ module.exports = [{
   },{
     name: 'Technician',
     active: true,
-    link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/5/58/IconPerks_thisIsNotHappening.png?version=60553649c84a7c1295473549e0c5000f',
+    link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/6/62/IconPerks_technician.png?version=3277b9e03d646688a5474f0498bbf469',
   },{
     name: 'Tenacity',
     active: true,
