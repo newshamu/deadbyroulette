@@ -19,7 +19,8 @@ export default new Vuetify({
         primary: '#701d1a',
         secondary: '#8d3228',
         accent: '#4f000a',
-        error: colors.red.accent3
+        error: colors.red.accent3,
+        activebtn: '#4f000a'
       }
     }
   }
