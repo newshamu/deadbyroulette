@@ -6,6 +6,8 @@
       dark
     >
       <v-toolbar-title>Dead By Roulette</v-toolbar-title>
+      <v-spacer />
+      <div>Latest Update: Silent Hill</div>
     </v-app-bar>
     
     <v-content>
