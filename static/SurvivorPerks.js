@@ -35,6 +35,10 @@ module.exports = [{
     active: true,
     link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/0/02/IconPerks_betterTogether.png?version=066081e0955af5cdc09d32b3a914037a',
   },{
+    name: 'Blood Pact',
+    active: true,
+    link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/c/c9/IconPerks_bloodPact.png?version=8f9de22511253fc1991d630ac5447c03',
+  },{
     name: 'Boil Over',
     active: true,
     link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/f/f5/IconPerks_boilOver.png?version=b9488ebfa73e2084714f5a76f132b661',
@@ -119,6 +123,10 @@ module.exports = [{
     active: true,
     link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/3/31/IconPerks_flip-Flop.png?version=31036c92868ab730488648610d8f1194',
   },{
+    name: 'For the People',
+    active: true,
+    link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/3/31/IconPerks_forThePeople.png?version=22b29fb5e189a9f5944b3fb58aaa58af',
+  },{
     name: 'Head On',
     active: true,
     link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/c/cb/IconPerks_headOn.png?version=93ef54cfe860d951da7b3ed14e7bcc9f',
@@ -175,6 +183,10 @@ module.exports = [{
     active: true,
     link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/2/2b/IconPerks_objectOfObsession.png?version=9ef450be1c15f4f35b06a16311e09151',
   },{
+    name: 'Off the Record',
+    active: true,
+    link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/9/9e/IconPerks_offTheRecord.png?version=5b6990d0ddd39b173b1ef45dc0433e2a',
+  },{
     name: 'Open-Handed',
     active: true,
     link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/5/5d/IconPerks_open-Handed.png?version=bcc01454e284da64d9d505c208e9fef5',
@@ -202,6 +214,14 @@ module.exports = [{
     name: 'Quick and Quiet',
     active: true,
     link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/1/14/IconPerks_quickAndQuiet.png?version=80a0639c2647821b461137eec101bfe6',
+  },{
+    name: 'Red Herring',
+    active: true,
+    link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/1/1c/IconPerks_redHerring.png?version=2eee82dbbc9efb2f1898f6b15b845114',
+  },{
+    name: 'Repressed Alliance',
+    active: true,
+    link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/3/31/IconPerks_repressedAlliance.png?version=e94456b166814e9452691cb9cfb9cae3',
   },{
     name: 'Resilience',
     active: true,
@@ -234,6 +254,10 @@ module.exports = [{
     name: 'Solidarity',
     active: true,
     link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/9/9e/IconPerks_solidarity.png?version=37be9f2b58ef51e4f98420c8f721fea8',
+  },{
+    name: 'Soul Guard',
+    active: true,
+    link: 'https://gamepedia.cursecdn.com/deadbydaylight_gamepedia_en/a/a5/IconPerks_soulGuard.png?version=9c7511cbe633f8981e5e2fbbb0659db0',
   },{
     name: 'Spine Chill',
     active: true,
