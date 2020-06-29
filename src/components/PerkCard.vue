@@ -3,9 +3,7 @@
       <v-card dark color="primary">
         <v-img
           :src="perk.link"
-          max-width="256"
-          max-height="256"
-          class="ma-3"
+          class="ma-3 justify-center"
         />
         <v-card-title class="justify-center">{{ perk.name }}</v-card-title>
       </v-card>

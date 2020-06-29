@@ -12,8 +12,11 @@
     
     <v-content>
       <perk-display :perks="perks" />
-      <select-all v-on:select-all-perks="selectAllPerks" />
+      <v-btn @click="perk_select_visible = !perk_select_visible">Customize Perks</v-btn>
+
+      <select-all v-if="perk_select_visible" v-on:select-all-perks="selectAllPerks" />
       <perk-select
+        v-if="perk_select_visible"
         class="ma-5"
         :perks="perks"
       />
@@ -74,6 +77,7 @@ export default {
   data() {
     return {
       perks: survivorPerks,
+      perk_select_visible: false,
     }
   }
 };
