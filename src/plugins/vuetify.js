@@ -15,7 +15,7 @@ export default new Vuetify({
         error: colors.red.accent3
       },
       dark: {
-        background: '#70481a',
+        background: '#3d2f2f',
         primary: '#701d1a',
         secondary: '#8d3228',
         accent: '#4f000a',

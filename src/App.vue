@@ -1,32 +1,44 @@
 <template>
   <v-app id="main" :style="{background: $vuetify.theme.themes[theme].background}">
     <v-app-bar
+      dense
       app
       color="primary"
       dark
     >
       <v-toolbar-title>Dead By Roulette</v-toolbar-title>
       <v-spacer />
-      <div>Latest Update: Silent Hill</div>
+      <v-toolbar-items>
+        <perk-dialog :perks="perks" />
+      </v-toolbar-items>
     </v-app-bar>
     
-    <v-content>
-      <perk-display :perks="perks" />
-      <v-btn @click="perk_select_visible = !perk_select_visible">Customize Perks</v-btn>
-
-      <select-all v-if="perk_select_visible" v-on:select-all-perks="selectAllPerks" />
-      <perk-select
-        v-if="perk_select_visible"
+    <v-main>
+      <v-alert
+        :value="perkAlert"
+        type="warning"
+        border="left"
+        dark
+        transition="scale-transition"
         class="ma-5"
-        :perks="perks"
-      />
-    </v-content>
+      >
+        WARNING: Not enough active perks. Select at least four perks.
+      </v-alert>
+      <perk-display :perks="perks" @perk-alert="handlePerkAlert($event)" />
+    </v-main>
+
+    <v-footer color="primary">
+      <span>Latest Update: Silent Hill</span>
+      <v-spacer />
+      <v-btn icon @click="goToGitHub()">
+        <v-icon large>mdi-github</v-icon>
+      </v-btn>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import PerkSelect from './components/PerkSelect'
-import SelectAll from './components/SelectAll'
+import PerkDialog from './components/PerkDialog'
 import PerkDisplay from './components/PerkDisplay'
 import survivorPerks from '../static/SurvivorPerks'
 
@@ -34,8 +46,7 @@ export default {
   name: 'App',
 
   components: {
-    SelectAll,
-    PerkSelect,
+    PerkDialog,
     PerkDisplay
   },
 
@@ -49,35 +60,26 @@ export default {
     }
   },
 
-  methods: {
-    selectAllPerks() {
-      let allSelected = true;
-      this.perks.forEach( function (perk) {
-        if (!perk.active) {
-          allSelected = false;
-        }
-      })
-
-      // Set all to true
-      if (!allSelected) {
-        console.log('set to true')
-        this.perks.forEach( function (perk) {
-          perk.active = true;
-        })
-      // Set all to false
-      } else {
-        console.log('set to false')
-        this.perks.forEach( function (perk) {
-          perk.active = false;
-        })
-      }
-    }
-  },
-
   data() {
     return {
       perks: survivorPerks,
-      perk_select_visible: false,
+      perkAlert: false,
+    }
+  },
+
+  methods: {
+    handlePerkAlert: function (perkAlert) {
+      if (perkAlert && this.perkAlert) {
+        this.perkAlert = false
+        setTimeout( () => {
+          this.perkAlert = true
+        }, 250)
+      } else {
+        this.perkAlert = perkAlert
+      }
+    },
+    goToGitHub: function () {
+      window.open('https://github.com/newshamu/deadbyroulette', '_blank')
     }
   }
 };

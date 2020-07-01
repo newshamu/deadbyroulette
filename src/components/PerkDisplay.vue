@@ -6,7 +6,7 @@
         wrap
       >
         <v-flex xs12 class="mt-5">
-          <v-btn color="accent" v-on:click="getPerks">Play the Roulette</v-btn>
+          <v-btn large color="accent" v-on:click="getPerks">Play the Roulette</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
@@ -43,6 +43,7 @@ export default {
 
       // Create random perk list
       if (available.length >= 4) {
+        this.$emit('perk-alert', false)
         this.randPerks = [];
         while (this.randPerks.length < 4) {
           let perk = available[Math.floor(Math.random() * available.length)];
@@ -50,9 +51,9 @@ export default {
             this.randPerks.push(perk);
           }
         }
+      // Not enough active perks
       } else {
-        console.log('Not enough perks are active')
-        /* TODO: Implement lack of perks alert */
+        this.$emit('perk-alert', true)
       }
     }
   },

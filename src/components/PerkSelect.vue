@@ -1,16 +1,15 @@
 <template>
   <v-container fluid>
-    <v-row class="d-flex justify-space-around">
-      <v-col cols="2" v-for="perk in perks" :key="perk.name">
+    <v-row class="d-flex justify-space-around" v-for="perk in perks" :key="perk.name">
+      <v-flex xs-6>
         <v-btn
           v-model="perk.active"
-          :color="perk.active ? 'accent' : 'grey.darken-3'"
-          block
+          :color="perk.active ? 'red darken-3' : 'grey darken-3'"
           v-on:click="toggle(perk)"
         >
           {{ perk.name }}
         </v-btn>
-      </v-col>
+      </v-flex>
     </v-row>
   </v-container>
 </template>
